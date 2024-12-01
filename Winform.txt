@@ -1,0 +1,253 @@
+Nhiệm vụ cả nhóm 
+Đức Minh: Giao diện người dùng (UI) và kết nối Backend
+Nhiệm vụ:
+Thiết kế giao diện:
+Form Đăng nhập và Đăng ký.
+Danh sách Tour và chi tiết Tour.
+Code logic phía client:
+Tạo sự kiện cho nút bấm (login, register, đặt tour).
+Kết nối với API để gửi và nhận dữ liệu.
+Đảm bảo giao diện thân thiện với người dùng (User-Friendly).
+Kỹ thuật:
+Sử dụng WinForms hoặc WPF (.NET Framework).
+Kết nối API thông qua HttpClient.
+
+Minh Quang: Backend và API
+Nhiệm vụ:
+Xây dựng API cho các chức năng:
+Xác thực (Đăng nhập/Đăng ký).
+Quản lý Tour (Lấy danh sách Tour, thêm/sửa/xóa Tour).
+Đặt Tour (Thêm, cập nhật trạng thái đặt Tour).
+Gửi phản hồi (Feedback).
+Tích hợp logic tính toán:
+Xử lý tính toán TotalPrice.
+Phân quyền theo vai trò (Admin, Staff, Customer).
+Bảo mật API:
+Mã hóa mật khẩu.
+Tránh lỗi SQL Injection bằng cách sử dụng Parameterized Query.
+Kỹ thuật:
+ASP.NET Web API (.NET Framework).
+Sử dụng SQL Server để lưu trữ dữ liệu.
+
+Mỹ Đặng: Quản lý Cơ sở dữ liệu và kiểm thử
+Nhiệm vụ:
+Thiết kế và quản lý cơ sở dữ liệu:
+Tạo bảng (Users, Tours, Bookings, Feedbacks).
+Thêm các ràng buộc quan hệ và trigger (nếu cần).
+Thêm dữ liệu mẫu.
+Phát triển các Stored Procedures:
+Đăng nhập/Đăng ký.
+Quản lý Tour.
+Xử lý đặt Tour.
+Kiểm tra và tối ưu hóa:
+Đảm bảo API backend hoạt động chính xác với dữ liệu.
+Test khả năng xử lý khi dữ liệu lớn.
+Kỹ thuật:
+SQL Server Management Studio (SSMS).
+Stored Procedures và Trigger.
+
+Phối hợp giữa các thành viên
+Họp định kỳ: Mỗi 2-3 ngày để cập nhật tiến độ và giải quyết vấn đề.
+Sử dụng Git: Tạo repository trên GitHub hoặc GitLab để quản lý mã nguồn:
+Thành viên 1 push mã giao diện.
+Thành viên 2 push mã API.
+Thành viên 3 push mã SQL.
+Phân chia branch:
+frontend: Thành viên 1.
+backend: Thành viên 2.
+database: Thành viên 3.
+
+1. Giao diện Đăng nhập và Đăng ký
+Form Đăng nhập:
+Chức năng:
+Nhập thông tin tài khoản (username, password).
+Xác định quyền truy cập (Admin, Staff, Customer).
+Hiển thị thông báo lỗi nếu thông tin không hợp lệ.
+Thành phần chính:
+TextBox: Nhập Username, Password.
+ComboBox: Chọn vai trò (Admin, Staff, Customer).
+Button: "Đăng nhập", "Quên mật khẩu".
+Xử lý:
+Kiểm tra thông tin tài khoản từ cơ sở dữ liệu.
+Phân quyền để chuyển hướng tới giao diện phù hợp.
+Form Đăng ký:
+Chức năng:
+Cho phép khách hàng đăng ký tài khoản.
+Thành phần chính:
+TextBox: Họ tên, Email, Số điện thoại, Username, Password.
+Button: "Đăng ký".
+Xử lý:
+Lưu thông tin người dùng vào cơ sở dữ liệu.
+
+2. Dashboard (Dành cho Admin)
+Chức năng:
+Hiển thị thông tin tổng quan:
+Tổng số tour đang hoạt động.
+Tổng số khách hàng.
+Doanh thu tháng hiện tại.
+Thành phần chính:
+Label và Chart: Hiển thị số liệu và biểu đồ.
+Button: "Quản lý Tour", "Quản lý Đặt Tour", "Quản lý Người dùng".
+Xử lý:
+Lấy dữ liệu từ cơ sở dữ liệu và tính toán tổng hợp.
+
+3. Quản lý Tour
+Danh sách Tour:
+Chức năng:
+Hiển thị danh sách các tour.
+Tìm kiếm tour theo tên, ngày khởi hành, hoặc giá.
+Thành phần chính:
+DataGridView: Danh sách tour.
+TextBox và Button: Tìm kiếm.
+Button: "Thêm", "Sửa", "Xóa".
+Xử lý:
+Lấy danh sách tour từ cơ sở dữ liệu.
+Cho phép thêm, sửa hoặc xóa thông tin tour.
+Form Thêm/Sửa Tour:
+Chức năng:
+Nhập hoặc chỉnh sửa thông tin chi tiết tour.
+Thành phần chính:
+TextBox: Tên tour, Giá, Số lượng, Mô tả.
+DateTimePicker: Ngày bắt đầu, Ngày kết thúc.
+Button: "Lưu", "Hủy".
+Xử lý:
+Thêm hoặc cập nhật dữ liệu vào cơ sở dữ liệu.
+
+4. Đặt Tour (Dành cho khách hàng)
+Danh sách Tour:
+Chức năng:
+Hiển thị các tour du lịch có sẵn.
+Tìm kiếm, lọc theo giá, ngày khởi hành.
+Thành phần chính:
+DataGridView: Danh sách tour.
+TextBox, ComboBox: Tìm kiếm, Lọc.
+Button: "Xem chi tiết".
+Xử lý:
+Tải danh sách từ cơ sở dữ liệu và áp dụng bộ lọc.
+Chi tiết Tour:
+Chức năng:
+Hiển thị thông tin chi tiết và cho phép đặt tour.
+Thành phần chính:
+Label: Hiển thị thông tin tour.
+NumericUpDown: Số lượng người.
+Button: "Đặt ngay".
+Xử lý:
+Xác nhận thông tin và lưu dữ liệu đặt tour vào cơ sở dữ liệu.
+
+5. Quản lý Đặt Tour (Admin và Staff)
+Danh sách Đặt Tour:
+Chức năng:
+Xem danh sách các đơn đặt tour.
+Xác nhận hoặc hủy đặt tour.
+Thành phần chính:
+DataGridView: Danh sách đặt tour.
+Button: "Xác nhận", "Hủy".
+Xử lý:
+Cập nhật trạng thái đặt tour trong cơ sở dữ liệu.
+
+6. Phản hồi (Feedback)
+Form Gửi Phản hồi (Khách hàng):
+Chức năng:
+Cho phép khách hàng gửi nhận xét và đánh giá.
+Thành phần chính:
+TextBox: Nhập nhận xét.
+NumericUpDown: Đánh giá (1-5 sao).
+Button: "Gửi".
+Xử lý:
+Lưu nhận xét vào cơ sở dữ liệu.
+Danh sách Phản hồi (Admin):
+Chức năng:
+Hiển thị các phản hồi từ khách hàng.
+Thành phần chính:
+DataGridView: Danh sách phản hồi.
+Xử lý:
+Tải dữ liệu phản hồi từ cơ sở dữ liệu.
+
+7. Quản lý Người dùng
+Chức năng:
+Hiển thị danh sách người dùng.
+Chỉnh sửa thông tin hoặc phân quyền người dùng.
+Thành phần chính:
+DataGridView: Danh sách người dùng.
+Button: "Chỉnh sửa", "Xóa".
+Xử lý:
+Cập nhật thông tin người dùng trong cơ sở dữ liệu.
+
+
+
+
+
+CREATE DATABASE TourManagementDB;
+GO
+USE TourManagementDB;
+GO
+CREATE TABLE Users (
+    UserID INT PRIMARY KEY IDENTITY(1,1),
+    Username NVARCHAR(50) NOT NULL UNIQUE,
+    Password NVARCHAR(255) NOT NULL,
+    FullName NVARCHAR(100),
+    Email NVARCHAR(100),
+    Phone NVARCHAR(15),
+    Role NVARCHAR(20) CHECK (Role IN ('Admin', 'Staff', 'Customer')),
+    CreatedDate DATETIME DEFAULT GETDATE()
+);
+CREATE TABLE Tours (
+    TourID INT PRIMARY KEY IDENTITY(1,1),
+    TourName NVARCHAR(100) NOT NULL,
+    Description NVARCHAR(MAX),
+    Price DECIMAL(18, 2) NOT NULL,
+    StartDate DATE NOT NULL,
+    EndDate DATE NOT NULL,
+    AvailableSlots INT NOT NULL,
+    CreatedDate DATETIME DEFAULT GETDATE()
+);
+CREATE TABLE Bookings (
+    BookingID INT PRIMARY KEY IDENTITY(1,1),
+    UserID INT NOT NULL FOREIGN KEY REFERENCES Users(UserID),
+    TourID INT NOT NULL FOREIGN KEY REFERENCES Tours(TourID),
+    BookingDate DATE DEFAULT GETDATE(),
+    NumberOfPeople INT NOT NULL,
+    TotalPrice DECIMAL(18, 2), -- Chuyển từ cột tính toán sang cột lưu trữ giá trị
+    Status NVARCHAR(20) DEFAULT 'Pending' CHECK (Status IN ('Pending', 'Confirmed', 'Cancelled'))
+);
+
+CREATE TABLE Feedbacks (
+    FeedbackID INT PRIMARY KEY IDENTITY(1,1),
+    UserID INT NOT NULL FOREIGN KEY REFERENCES Users(UserID),
+    TourID INT NOT NULL FOREIGN KEY REFERENCES Tours(TourID),
+    FeedbackText NVARCHAR(MAX),
+    Rating INT CHECK (Rating BETWEEN 1 AND 5),
+    FeedbackDate DATETIME DEFAULT GETDATE()
+);
+INSERT INTO Users (Username, Password, FullName, Email, Phone, Role)
+VALUES 
+('admin', 'admin123', 'Administrator', 'admin@tour.com', '0123456789', 'Admin'),
+('staff1', 'staff123', 'Staff One', 'staff1@tour.com', '0987654321', 'Staff'),
+('customer1', 'customer123', 'Customer One', 'customer1@tour.com', '0912345678', 'Customer');
+INSERT INTO Tours (TourName, Description, Price, StartDate, EndDate, AvailableSlots)
+VALUES
+('Tour Hạ Long', 'Tham quan Vịnh Hạ Long 3 ngày 2 đêm', 3000000, '2024-12-10', '2024-12-12', 20),
+('Tour Đà Nẵng', 'Khám phá Đà Nẵng 5 ngày 4 đêm', 5000000, '2025-01-15', '2025-01-19', 30);
+INSERT INTO Bookings (UserID, TourID, NumberOfPeople)
+VALUES
+(3, 1, 2),
+(3, 2, 1);
+INSERT INTO Feedbacks (UserID, TourID, FeedbackText, Rating)
+VALUES
+(3, 1, 'Tour rất tuyệt vời!', 5),
+(3, 2, 'Hướng dẫn viên nhiệt tình.', 4);
+Go
+CREATE TRIGGER trg_CalculateTotalPrice
+ON Bookings
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    -- Cập nhật TotalPrice dựa trên giá tour và số người đặt
+    UPDATE b
+    SET b.TotalPrice = b.NumberOfPeople * t.Price
+    FROM Bookings b
+    INNER JOIN Tours t ON b.TourID = t.TourID
+    WHERE b.BookingID IN (SELECT BookingID FROM inserted);
+END;
+
+
