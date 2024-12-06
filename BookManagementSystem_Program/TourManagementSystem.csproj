@@ -59,13 +59,7 @@
     <Compile Include="AccountInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddTourForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="DashboardForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FeedBackManagement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FeedbacksForm.cs">
@@ -84,15 +78,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TourBooking.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TourBookingManagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TourManagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserManagement.cs">
       <SubType>Form</SubType>
     </Compile>
     <EmbeddedResource Include="AccountInfo.resx">
