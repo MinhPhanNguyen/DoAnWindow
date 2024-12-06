@@ -1,6 +1,17 @@
-﻿namespace BookManagementSystem_Program
+﻿using System.Windows.Forms;
+
+namespace BookManagementSystem_Program
 {
-    internal class FeedbacksForm
+    internal class FeedbacksForm : Form
     {
+        public FeedbacksForm()
+        {
+            InitializeComponent();
+        }
+
+        private void InitializeComponent()
+        {
+
+        }
     }
 }
